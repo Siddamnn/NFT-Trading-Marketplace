@@ -170,7 +170,7 @@ _this.setState({ activeAuction: auction }); // Update the state
       state = "Direct Buy";
     }
     return (
-      <div style={{ background: "yellow" }} class="col">
+      <div class="col">
         <p>ID: {auction.tokenId}</p> {/* ID of the token */}
         <p>Highest Bid: {auction.highestBid || 0}</p>
         {/* Highest bid */}
@@ -352,9 +352,9 @@ alert(`Auction Canceled! Hash: ${hash}`);
   }
   render() {
     return (
-      <div>
+      <div class="box">
         <div class="jumbotron d-flex align-items-center">
-          <div class="container">
+          <div class="container1">
             {this.state.activeAuction != null ? (
               this.renderActiveAuction()
             ) : (
@@ -367,11 +367,42 @@ alert(`Auction Canceled! Hash: ${hash}`);
           </div>
         </div>
         <div class="container">
+        <div class="screen">
+        <div class="screen-header">
+        <div class="screen-header-left">
+          <div class="screen-header-button close"></div>
+          <div class="screen-header-button maximize"></div>
+          <div class="screen-header-button minimize"></div>
+        </div>
+        <div class="screen-header-right">
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+        </div>
+      </div> 
           <form>
             <div class="mb-3">
+            <div class="screen-body">
+            <div class="screen-body-item left">
+            <div class="app-title">
               <label for="startprice" class="form-label">
-                Start Price
+                Sell Your NFT
               </label>
+              </div>
+              <div class="app-contact">
+              <div class="your">
+                 <p>
+            Your items
+            <br />
+            {(this.state.myItems || [""]).map((x) => `id: ${x} `) || ""}
+          </p>
+          </div>
+          </div>
+        </div>
+        <div class="screen-body-item">
+          <div class="app-form">
+          <div class="app-form-group">
+          
               <input
                 value={this.state.newAuction.startPrice}
                 onChange={(e) =>
@@ -383,12 +414,13 @@ alert(`Auction Canceled! Hash: ${hash}`);
                   })
                 }
                 type="number"
-                class="form-control"
+                class="app-form-control"
                 id="startprice"
+                placeholder="Start Price"
               />
-              <label for="startprice" class="form-label">
-                Token Id
-              </label>
+              
+              </div>
+              <div class="app-form-group">
               <input
                 value={this.state.newAuction.tokenId}
                 onChange={(e) =>
@@ -400,11 +432,14 @@ alert(`Auction Canceled! Hash: ${hash}`);
                   })
                 }
                 type="number"
-                class="form-control"
+                class="app-form-control"
                 id="startprice"
+                placeholder="Token Id"
               />
-              <label class="form-label">Minimum Increment</label>
-              <input
+              
+              </div>
+              <div class="app-form-group">
+              <input class="app-form-control"
                 value={this.state.newAuction.minIncrement}
                 onChange={(e) =>
                   this.setState({
@@ -415,9 +450,11 @@ alert(`Auction Canceled! Hash: ${hash}`);
                   })
                 }
                 type="number"
-                class="form-control"
+                placeholder="Minimum Increment"
+                
               />
-              <label class="form-label">Direct Buy Price</label>
+              </div>
+              <div class="app-form-group">
               <input
                 value={this.state.newAuction.directBuyPrice}
                 onChange={(e) =>
@@ -429,10 +466,13 @@ alert(`Auction Canceled! Hash: ${hash}`);
                   })
                 }
                 type="number"
-                class="form-control"
+                class="app-form-control"
+                placeholder="Direct Buy Price"
               />
+              </div>
 
-              <label class="form-label">Duration In Minutes</label>
+
+              <div class="app-form-group">
               <input
                 value={this.state.newAuction.endTime}
                 onChange={(e) =>
@@ -444,26 +484,31 @@ alert(`Auction Canceled! Hash: ${hash}`);
                   })
                 }
                 type="number"
-                class="form-control"
+                class="app-form-control"
+                placeholder="Duration In Minutes"
               />
             </div>
-
+            </div>
+            </div>
+            </div>
+            <div class="app-form-group buttons">
             <button
               type="button"
               onClick={() => this.createAuction()}
-              class="btn btn-primary"
+              class="app-form-button"
             >
               Create Auction
             </button>
+            
+            </div>
+            </div>
           </form>
           {/* <button class="btn btn-fanger">Mint NFT</button> */}
-          <p>
-            Your items
-            <br />
-            {(this.state.myItems || [""]).map((x) => `id: ${x} `) || ""}
-          </p>
+         
+          </div>
         </div>
-      </div>
+        </div>
+      
     );
   }
 }

@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mac-header {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    -webkit-app-region: drag;
+  }
+  
+  .mac-header__controls {
+    margin-left: 10px;
+    display: flex;
+    margin-right: 8px;
+  }
+  
+  .mac-header__control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  
+  .mac-header__control--close {
+    background-color: #ff5f57;
+  }
+  
+  .mac-header__control--minimize {
+    background-color: #ffbd2e;
+  }
+  
+  .mac-header__control--maximize {
+    background-color: #28c940;
+  }
+  
+  .mac-header__title {
+    color: #333;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  
+  .mac-header__button {
+    margin-right: 8px;
+    color: #fff;
+    border: none;
+    background: none;
+    border: none;
+    color: #ea1d6f;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none
+   
+  }
+  
+  .mac-header__button:hover {
+    color: #b9134f;
+  }
+  
